@@ -1,0 +1,221 @@
+{
+  "components": {
+    "annotation": {
+      "directory": "3d_landmark_annotation",
+      "files": {
+        "LICENSE": "acfafce602131ec2cd9a53399bf141a41d6d89f29a3ad90c0707404bb6b21787",
+        "PROVENANCE.md": "2cc16e6f3dcba46ad2ebbfb167c7dfdd147830d18030813ef6cc6302951408b2",
+        "README.md": "e53e76577f0672a31f1d69e70bd13bbb37a9da3ff951d03ce0a6a7336623a4d4",
+        "configs/landmark_config.json": "5966549b0ddbfd65f4c6f1b29202ece390544983c0c1cb13a33bdc56ff3998cf",
+        "configs/lumbar_pelvis_crop_config.json": "05083de34b8c5608600caecd427214de30612944e6eff3430b3ad354f86725e3",
+        "configs/totalseg_all_labels.json": "e9c87694de73a3a7db1dedc55a0e3c9658a5384e619935967b4ac03f108a3052",
+        "docs/landmark_method.md": "f43de2f88b41898ebf420823f69ae4d7e7bc2cddadbf294ddc28807dcc1b2c1d",
+        "docs/low_memory.md": "a907fc445b23d68f84365287dc19a902e5a9f9c5370a9431e98d5f07a659d93d",
+        "environment.yml": "526e29034c388670054eea5eaf4a19f20551382479219c22673f5fcb37adb773",
+        "examples/README.md": "80c1ff1a518ef574a6b02f6f1f8b66ec2a0433eddeac74178bf98e21e7a95527",
+        "examples/make_synthetic_case.py": "b7aefb204eba73440924c2553755360c4664345b0ddf1ddce5c00599c9903f03",
+        "landmarks/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "landmarks/fcsv_writer.py": "a673d332d171ab10dd1659596c0a62c7eccb186a3f744b0c555f1a5b76a2131a",
+        "landmarks/femur_landmarks.py": "f9c7ce5f0477f70472090112d5f26cc1adfdd1b2389904d21ccac628e03ed820",
+        "landmarks/lumbar_landmarks.py": "375da13a280931ce00541680e50144802463b4781ddfe6025ca36ef413018a8e",
+        "landmarks/model_lookup.py": "96e194d3e78042778b4d41f20727f478660514fe1160ef8d0d650efdd22bcec2",
+        "landmarks/pelvis_landmarks.py": "3803fb46c0ff4f226882d93cc119ffb758052376c18f72b62d8db7e1b5d2a462",
+        "landmarks/status.py": "cb2505d99095f9d45bd6a0a7988c5bf707e96b9a5e041bbd39365f9edc7f86fa",
+        "process_medical_scans.py": "59a7a07f03ab5d7881c269b3d75e608b0585ddb79b112eca86ba275dcd4cafa6",
+        "requirements.txt": "d1728f53dbb71bd31657ecfb338a08535631cba57ccbd68264028145ba07f37d",
+        "rng.py": "174d786cc6e4bccc1ee9533f22a8c9e263bbf895b6da30ad182597d11ad285ff",
+        "utils/__init__.py": "d8f3b250f5ee87164bcd90ad5bca4a944771913113a5a6ca74a7f84e59056979",
+        "utils/roi_cropper.py": "f920baa546b52e25e58788719b14d104fcfc4539f64f9fc7cc770e1d12863871",
+        "utils/segmentation_cleanup.py": "ed690f62e2b4e0bc56354396d21554b90daf091e23855a26c453a4496b0783ae",
+        "utils/stl_generator.py": "d5f135fd082090f657d13e8931f72bbee2c033f0722ee4c522763039e3966bc0",
+        "utils/totalsegmentator_postprocess.py": "11ae8dca949dfb4eaf72d92d561249e158d8d4d8a7557cbb0f11af3349ab0785"
+      },
+      "license": "MIT",
+      "snapshot_sha256": "5f8bfff755008eee251eeb17a6c41b978cd252faab1f4245e79f1bbf74f8083c",
+      "source_repository": "https://github.com/uark-i3r-bigss/3d_landmark_annotation",
+      "source_revision": "c950b978c1aecbb789afd6970a4830df20c0f7e3",
+      "transformations": [
+        {
+          "operations": [
+            {
+              "new_text": "",
+              "old_text": "| Original CT scan | Segmentation + landmarks |\n|:----------------:|:------------------------:|\n| <img src=\"images/original_ct_mesh.png\" height=\"300\"> | <img src=\"images/segmented_ct.png\" height=\"300\"> |\n\n",
+              "operation": "replace_exact_text",
+              "reason": "Historical CT images have no redistribution clearance; image files are excluded."
+            },
+            {
+              "new_text": "# 3D Landmark Annotation\n\nThis is a frozen, curated SlicerFluoroReg backend snapshot. Configure it with the extension's\n`python -m fluororeg tools setup --component annotation` command; the manual environment\ninstructions below describe the recorded standalone baseline. No scans or model weights\nare included. See `../VENDORED_COMPONENTS.json` for the source commit and curation record.\n\n",
+              "old_text": "# 3D Landmark Annotation\n\n",
+              "operation": "replace_exact_text",
+              "reason": "The operator snapshot ships the CLI, configs, methods, provenance and synthetic generator only."
+            },
+            {
+              "new_text": "- **Interface**: CLI for one case or a directory of cases\n",
+              "old_text": "- **Interfaces**: CLI for one case or a directory of cases, plus a polled ZeroMQ job service\n",
+              "operation": "replace_exact_text",
+              "reason": "The operator snapshot ships the CLI, configs, methods, provenance and synthetic generator only."
+            },
+            {
+              "new_text": "",
+              "old_text": "### Visualize\n\n```bash\npython visualize_landmarks.py /path/to/output/<case_id>\n```\n\n### Annotation server\n\n```bash\nbash scripts/launch_3d_annotation_server.sh 5568\n```\n\nProtocol and payloads: [`docs/service.md`](docs/service.md).\n\n",
+              "operation": "replace_exact_text",
+              "reason": "The operator snapshot ships the CLI, configs, methods, provenance and synthetic generator only."
+            },
+            {
+              "new_text": "",
+              "old_text": "## Tests\n\n```bash\nconda run --prefix \"$HOME/.local/share/fluororeg/annotation-env\" python -m unittest discover -s tests -t .\n```\n\n",
+              "operation": "replace_exact_text",
+              "reason": "The operator snapshot ships the CLI, configs, methods, provenance and synthetic generator only."
+            },
+            {
+              "new_text": "",
+              "old_text": "| [docs/service.md](docs/service.md) | ZeroMQ job service: requests, case ids, overwrite semantics, polling, results |\n",
+              "operation": "replace_exact_text",
+              "reason": "The operator snapshot ships the CLI, configs, methods, provenance and synthetic generator only."
+            },
+            {
+              "new_text": "",
+              "old_text": "| [docs/gui_integration.md](docs/gui_integration.md) | Use inside the BIGSS registration stack; ownership boundary |\n",
+              "operation": "replace_exact_text",
+              "reason": "The operator snapshot ships the CLI, configs, methods, provenance and synthetic generator only."
+            },
+            {
+              "new_text": "",
+              "old_text": "| [docs/visualization.md](docs/visualization.md) | Generating a scene for bigss-surgery-3d-visualizer and what it shows |\n",
+              "operation": "replace_exact_text",
+              "reason": "The operator snapshot ships the CLI, configs, methods, provenance and synthetic generator only."
+            },
+            {
+              "new_text": "",
+              "old_text": "| [docs/invariance_baseline.md](docs/invariance_baseline.md) | Measured pose invariance per stage, and the stage that still fails |\n",
+              "operation": "replace_exact_text",
+              "reason": "The operator snapshot ships the CLI, configs, methods, provenance and synthetic generator only."
+            },
+            {
+              "new_text": "python examples/make_synthetic_case.py --output-dir \"$HOME/.cache/fluororeg/synthetic\"\n",
+              "old_text": "python examples/make_synthetic_case.py\n",
+              "operation": "replace_exact_text",
+              "reason": "Write generated artifacts outside the read-only installed snapshot."
+            }
+          ],
+          "path": "README.md",
+          "snapshot_sha256": "e53e76577f0672a31f1d69e70bd13bbb37a9da3ff951d03ce0a6a7336623a4d4",
+          "source_sha256": "256e2000c836a71754f7a2824454c727e896d8d107153e2fa1b788592619b648"
+        },
+        {
+          "operations": [
+            {
+              "new_text": "",
+              "old_text": "In service diagnostics, `lumbar_summary.detected` counts levels with a native `LUM_Ln_COM` landmark.\nSegmentation-only levels are reported as `seg_only` and cannot supply the registration center. The\ncenter is the lower-middle of the sorted landmark-confirmed levels (index `(n - 1) // 2`); for\nexample, L1\u2013L4 selects `LUM_L2_COM`.\n\n",
+              "operation": "replace_exact_text",
+              "reason": "The operator snapshot ships the CLI, configs, methods, provenance and synthetic generator only."
+            }
+          ],
+          "path": "docs/landmark_method.md",
+          "snapshot_sha256": "f43de2f88b41898ebf420823f69ae4d7e7bc2cddadbf294ddc28807dcc1b2c1d",
+          "source_sha256": "b512fe6566fff56d38d018d7b431a6b4e8e701ef55ffd622310fa607e3bf0cef"
+        },
+        {
+          "operations": [
+            {
+              "new_text": "pipeline supports TotalSegmentator's lower-memory switches through the CLI.",
+              "old_text": "pipeline supports TotalSegmentator's lower-memory switches from both the CLI\nand the 3D annotation server.",
+              "operation": "replace_exact_text",
+              "reason": "The operator snapshot ships the CLI, configs, methods, provenance and synthetic generator only."
+            },
+            {
+              "new_text": "",
+              "old_text": "## Server payload\n\nThe 3D annotation server accepts the same controls in `submit_job` payloads:\n\nSee the [service contract](service.md) for launch, polling, shared-filesystem paths,\nand returned-output ownership. The example below\nexplicitly enables destructive overwrite; use `false` to preserve an existing\ncase output. Inspect artifacts under the returned `result.annotation_output_dir`,\nwhich may be a nested case directory.\n\n```json\n{\n  \"type\": \"submit_job\",\n  \"input_path\": \"/path/to/input.nii.gz\",\n  \"project_dir\": \"/path/to/xreg_project\",\n  \"overwrite_existing\": true,\n  \"device\": \"cpu\",\n  \"fastest\": true,\n  \"body_seg\": true,\n  \"force_split\": true,\n  \"roi_subset\": [\n    \"hip_left\",\n    \"hip_right\",\n    \"femur_left\",\n    \"femur_right\",\n    \"vertebrae_L1\",\n    \"vertebrae_L2\",\n    \"vertebrae_L3\",\n    \"vertebrae_L4\",\n    \"vertebrae_L5\",\n    \"vertebrae_S1\",\n    \"sacrum\"\n  ]\n}\n```\n\nThe job snapshot and `source_input.json` record `device`, `fastest`,\n`body_seg`, `force_split`, and `roi_subset` so each run is auditable.\n\n",
+              "operation": "replace_exact_text",
+              "reason": "The operator snapshot ships the CLI, configs, methods, provenance and synthetic generator only."
+            },
+            {
+              "count": 2,
+              "new_text": "conda activate \"$HOME/.local/share/fluororeg/annotation-env\"\n",
+              "old_text": "conda activate totalseg\n",
+              "operation": "replace_all_exact_text",
+              "reason": "Match the documented external-prefix environment baseline."
+            },
+            {
+              "new_text": "- the CLI completed successfully\n",
+              "old_text": "- server/job status is `completed`\n",
+              "operation": "replace_exact_text",
+              "reason": "The operator snapshot ships the CLI, configs, methods, provenance and synthetic generator only."
+            },
+            {
+              "new_text": "- CLI output and generated artifacts contain the expected anatomies\n",
+              "old_text": "- job diagnostics list the expected detected anatomies\n",
+              "operation": "replace_exact_text",
+              "reason": "The operator snapshot ships the CLI, configs, methods, provenance and synthetic generator only."
+            }
+          ],
+          "path": "docs/low_memory.md",
+          "snapshot_sha256": "a907fc445b23d68f84365287dc19a902e5a9f9c5370a9431e98d5f07a659d93d",
+          "source_sha256": "da2769bee7d5240858c17f68233a9249e189af45aeaaef34ae130a08e170d3b3"
+        },
+        {
+          "operations": [
+            {
+              "new_text": "python examples/make_synthetic_case.py --output-dir \"$HOME/.cache/fluororeg/synthetic\"\n",
+              "old_text": "python examples/make_synthetic_case.py\n",
+              "operation": "replace_exact_text",
+              "reason": "Write generated artifacts outside the read-only installed snapshot."
+            },
+            {
+              "count": 4,
+              "new_text": "$HOME/.cache/fluororeg/synthetic",
+              "old_text": "examples/outputs/synthetic",
+              "operation": "replace_all_exact_text",
+              "reason": "Match the documented external synthetic output directory."
+            },
+            {
+              "new_text": "No example scans, generated outputs or test files are included in this snapshot. Only the\nsynthetic generator and this guide are shipped; keep generated artifacts outside the extension.\n",
+              "old_text": "`examples/data/` and `examples/outputs/` are gitignored: generated artifacts and any local scan\ndata stay out of the repository. Only `make_synthetic_case.py` and this README are tracked.\n",
+              "operation": "replace_exact_text",
+              "reason": "The operator snapshot ships the CLI, configs, methods, provenance and synthetic generator only."
+            }
+          ],
+          "path": "examples/README.md",
+          "snapshot_sha256": "80c1ff1a518ef574a6b02f6f1f8b66ec2a0433eddeac74178bf98e21e7a95527",
+          "source_sha256": "26e4378343919b519d076b38c5576045a9ba80fb1cc87115bf68d47fdef85015"
+        }
+      ]
+    },
+    "pose": {
+      "directory": "bigss-pose-estimation",
+      "files": {
+        ".python-version": "7a41a41354ab8049091ef1a00253ca00567f5a1d3f9aef5502c0b4b5ce9ae707",
+        "LICENSE": "acfafce602131ec2cd9a53399bf141a41d6d89f29a3ad90c0707404bb6b21787",
+        "README.md": "a55a3de45176e1dd26b7dcf64577a36c83e6f37dae2e7155d1faaa0acb7623e1",
+        "docs/config_schema.md": "50e87643e5148e1534bd80a19be951d8df28a0f5264f770f68cdb32320a2bb2f",
+        "docs/outputs.md": "d7dda76b25ea7182fcdeb29d723e2a10f8bdcb8e62e0aed575fa3d9e1ecc737f",
+        "docs/source_side_check.md": "a619d514e8b67a3cdd1154a9cf532ad46df97508005254ff4f3ce85366bd4d8e",
+        "models/README.md": "d15821c1a0c5751f176a4dda04f38c574be4f52f17eed83103d2e7d6c1aa2650",
+        "pyproject.toml": "d63a1d26767950e521fc581e7efcbc1081743aa549aed52999873056584aa25a",
+        "scripts/pose.sh": "4485525961a2fb6fdf1ccd29bea73e45c63f5bb80037b18ac92ba488f2ff02e0",
+        "scripts/setup_env.sh": "608685db0fb629484f37e01114d8b9bbdcd78dcfe7282c160d8683b4b11eb9dd",
+        "src/bigss_pose/__init__.py": "7cfc537eaf809c64e68b44d367b5e7e6ae383cab5a59b04ba62fb8ebc40e4fe8",
+        "src/bigss_pose/__main__.py": "13a1a5b340cdcfc1902b62be90e508c7c71886000d5bf087e7854aadf09fb35e",
+        "src/bigss_pose/bridge.py": "ecc1601032acb0c394ca11b439dd08795123ad44c63f96d7804b0ebe76ad8c9a",
+        "src/bigss_pose/cli.py": "6857b13c587fb5bf65fe60d1e24e3237b3d7f7499c12f09b72840486a531ebca",
+        "src/bigss_pose/config.py": "1139d5e570aec99157b1432caf23eb3338eb39a30e7e04bc32f70d99217e7780",
+        "src/bigss_pose/geometry.py": "c3d5cbd7b69eef7036d7bf0334cdc6b19d613c3de0971080335837fd0c73c7fe",
+        "src/bigss_pose/predict.py": "d7cd2c2818e6b245ffd64d94a66611e744233a83538b96d6db3e4d7141d1af86",
+        "src/bigss_pose/quality.py": "6ac6991bbb55d24d8bd13d17056a080ade8cc565659a49a4d5d659dc13177c89",
+        "src/bigss_pose/score.py": "c4863d6681efa42a4c384742907243373f5ba909c54cdbef3debd4f9cd38714c",
+        "src/bigss_pose/selfcheck.py": "287dea41696ec89552fc6652a07a211ecb06ad777f9a500e860855caaf15be57",
+        "src/bigss_pose/status.py": "6c530b5984b8a69f575354bc5d1b8da629de0e6a30599603e27d0adb576a7be1",
+        "src/bigss_pose/train.py": "0814e429d06fa2587d5daa1d9888892c589453b224a0244c048c08159cf45ee3",
+        "src/bigss_pose/weights.py": "75d304865fec68437720cd8292e40daa0839a0e1bc52e25055fd7076d212fa45",
+        "src/bigss_pose/xreg_io.py": "7e6ac10d12fe1fc0a0dcac8bd5d3c16c17b375a5059a584020e3987d50cbb73b",
+        "uv.lock": "fc41aa776dbf650544862460f96dae72f07123feb1607d84198d655a832b4dc2"
+      },
+      "license": "MIT",
+      "snapshot_sha256": "3fffa262740f93231ca79dab9b817f637f28a21cfb469d5d0a0530c4dc17c3b8",
+      "source_repository": "https://github.com/uark-i3r-bigss/bigss-2d3d-pose-estimation",
+      "source_revision": "9abdbcd8c57cbf686c5fd00e69670e0786c8a779",
+      "transformations": []
+    }
+  },
+  "schema_version": 1
+}

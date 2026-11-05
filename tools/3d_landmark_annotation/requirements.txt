@@ -1,0 +1,10 @@
+# Runtime dependencies. Install into the `totalseg` conda environment.
+# TotalSegmentator pulls in torch and nnU-Net; install it first on a fresh env.
+TotalSegmentator
+numpy
+nibabel
+numpy-stl
+connected-components-3d
+pyvista
+pyzmq
+pyyaml

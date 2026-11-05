@@ -1,0 +1,37 @@
+[project]
+name = "bigss-pose-estimation"
+version = "0.1.0"
+description = "Learned X-ray pose estimation that seeds xreg 2D/3D registration"
+readme = "README.md"
+requires-python = ">=3.10,<3.11"
+dependencies = [
+    # xvr (Gopalakrishnan et al., Nature 2026), pinned to the commit validated against xreg's
+    # camera model. Replace this estimator here; the outputs are xreg-native.
+    "xvreg @ git+https://github.com/eigenvivek/xvr@caa55cc8096294cf70a218126bf16008dee0dec7",
+    # torch 2.10 PyPI wheels target CUDA 12.8 (NVIDIA driver >= 570).
+    "torch==2.10.0",
+    "diffdrr==0.6.0",
+    "h5py>=3.11",
+    "nibabel>=5.0",
+    "numpy>=1.26",
+]
+
+[project.scripts]
+bigss-pose = "bigss_pose.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bigss_pose"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore:builtin type Swig.*has no __module__:DeprecationWarning"]

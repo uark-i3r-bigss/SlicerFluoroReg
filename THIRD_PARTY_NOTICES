@@ -1,0 +1,59 @@
+SlicerFluoroReg: third-party and data boundaries
+
+The accompanying LICENSE grants MIT terms for the BIGSS-owned extension,
+pose and annotation implementation code and documentation. It does not
+relicense external applications, libraries, pretrained weights, patient scans,
+annotations, videos, or derived datasets. Curated pose/annotation source is
+bundled under share/Slicer-X.Y/SlicerFluoroReg/tools with original LICENSE and
+provenance files; tools/VENDORED_COMPONENTS.json records exact source revisions
+and snapshot hashes. No xreg executable/source, Python environment, pretrained
+weight, medical example or unapproved image is bundled.
+
+Bundled BIGSS implementations and separately installed software:
+- 3D Slicer: https://www.slicer.org/ ; retain the license notices shipped with
+  your Slicer installation and each installed extension.
+- BIGSS xreg fork: https://github.com/uark-i3r-bigss/xreg ; upstream xreg is
+  Copyright (c) 2020 Robert Grupp, MIT. See that repository's LICENSE and
+  third_party/ notices for its bundled dependencies; this is not a grant for
+  every dependency of a separately built xreg executable.
+- Bundled BIGSS annotation implementation: tools/3d_landmark_annotation;
+  retain its LICENSE and PROVENANCE.md. TotalSegmentator and its models
+  remain upstream works. Standalone repository publication is not required
+  to install the bundled snapshot.
+- Bundled BIGSS pose wrapper: tools/bigss-pose-estimation; retain its LICENSE,
+  README and provenance. xvr and foundation weights remain upstream works.
+- External dependency environments are installed only on explicit setup,
+  outside the extension. Their distributions retain their original terms.
+
+Upstream license evidence reviewed 2026-11-04 (not a blanket clearance):
+- xvr source at caa55cc8096294cf70a218126bf16008dee0dec7 is MIT,
+  Copyright (c) 2025 Vivek Gopalakrishnan:
+  https://github.com/eigenvivek/xvr/blob/caa55cc8096294cf70a218126bf16008dee0dec7/LICENSE
+- The xvr model repository card declares `license: mit` and identifies
+  wbct/model.pth as the foundation model:
+  https://huggingface.co/eigenvivek/xvr/blob/main/README.md
+  Its linked standalone LICENSE was not available during review (HTTP 404).
+  This model-card declaration is the evidence, not a BIGSS license grant.
+  Download the checksum-verified weights from upstream via the pose setup
+  script. Preserve upstream attribution/terms when redistributing weights;
+  no weights are redistributed in the extension release.
+- TotalSegmentator source uses Apache-2.0:
+  https://github.com/wasserth/TotalSegmentator/blob/master/LICENSE
+  Its README explicitly lists total and total_mr as Apache-2.0 tasks, but
+  separately lists licensed/restricted tasks:
+  https://github.com/wasserth/TotalSegmentator#subtasks
+  Review the selected installed version, task and model before use. A source
+  license is not evidence that every optional model or dataset has that license.
+
+Data and samples:
+- No patient-image or sample-data redistribution grant is made by LICENSE.
+- No historical demo/video asset is bundled or required. Sample rights and
+  publication are pending; never copy historical datasets into source or
+  extension packages.
+- Training datasets, user inputs, trained patient-specific models and derived
+  outputs require their own consent, governance and license review. Upstream
+  dataset links do not grant BIGSS permission to relicense their contents.
+
+These notices identify external boundaries, not an exhaustive license inventory
+of independently installed environments. Keep their original distributions'
+licenses and notices. See docs/setup.md for dependency and download instructions.

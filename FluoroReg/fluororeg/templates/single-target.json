@@ -1,0 +1,83 @@
+{
+  "process_name": "Pelvis, single view, seeded from the staged learned pose (key ct); case <case>",
+  "experiment_dir": "<experiment_dir>",
+  "volume": {
+    "ct": "<ct>",
+    "seg": "<seg>",
+    "landmarks_3d": "<landmarks_3d>"
+  },
+  "landmarks": {
+    "registry": "configs/landmark_sets.json",
+    "swap_2d_sides": false
+  },
+  "projections": {
+    "dir": "meta_data/XrayProjData",
+    "pattern": "{id}.h5",
+    "ids": []
+  },
+  "targets": [
+    {
+      "key": "pelvis",
+      "landmark_set": "pelvis",
+      "init": {
+        "method": "run",
+        "from_run": "meta_data/initial_poses/<case>",
+        "from_target": "ct"
+      }
+    }
+  ],
+  "schedule": [
+    {
+      "name": "pelvis_coarse",
+      "move": [
+        "pelvis"
+      ],
+      "optimizer": "CMAES",
+      "ds_factor": 0.25,
+      "pop_size": 300,
+      "sigma_rot_deg": [
+        10,
+        10,
+        10
+      ],
+      "sigma_trans_mm": [
+        20,
+        20,
+        20
+      ],
+      "rot_penalty_deg": 20.0,
+      "trans_penalty": 20.0,
+      "img_sim_penalty_coefs": [
+        0.9,
+        0.1
+      ]
+    },
+    {
+      "name": "pelvis_fine",
+      "move": [
+        "pelvis"
+      ],
+      "optimizer": "BOBYQA",
+      "ds_factor": 0.25,
+      "bounds_rot_deg": [
+        2,
+        2,
+        2
+      ],
+      "bounds_trans_mm": [
+        10,
+        10,
+        10
+      ],
+      "opt_x_tol": 0.0001,
+      "opt_obj_fn_tol": 0.0001
+    }
+  ],
+  "preprocessing": {
+    "no_log_remap": false
+  },
+  "output": {
+    "dir": "outputs/<case>/<name>",
+    "save_debug": true
+  }
+}

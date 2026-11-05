@@ -1,0 +1,30 @@
+# Agent and research material: local only, never tracked (this repo is shared)
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+.claude/
+.codex/
+.agents/
+.cursor/
+/agents/
+/research/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# Slicer outputs
+/Testing/Temporary/
+*.mrb
+
+# Extension packages (scripts/package_extension.py)
+/dist/
+
+# Editors
+.vscode/
+.idea/
+
+# Local developer tests are not part of the release source
+/tests/

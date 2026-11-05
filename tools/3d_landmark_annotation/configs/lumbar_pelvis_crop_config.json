@@ -1,0 +1,47 @@
+{
+    "anatomies": {
+        "lumbar": {
+            "labels": ["vertebrae_L1", "vertebrae_L2", "vertebrae_L3", "vertebrae_L4", "vertebrae_L5", "sacrum"],
+            "margin_mm": [20, 20, 20, 20, 20, 20],
+            "landmarks": [
+                "LUM_L1_COM",
+                "LUM_L1_SP", "LUM_L1_TP_L", "LUM_L1_TP_R", 
+                "LUM_L2_COM",
+                "LUM_L2_SP", "LUM_L2_TP_L", "LUM_L2_TP_R", 
+                "LUM_L3_COM",
+                "LUM_L3_SP", "LUM_L3_TP_L", "LUM_L3_TP_R", 
+                "LUM_L4_COM",
+                "LUM_L4_SP", "LUM_L4_TP_L", "LUM_L4_TP_R", 
+                "LUM_L5_COM",
+                "LUM_L5_SP", "LUM_L5_TP_L", "LUM_L5_TP_R", 
+                "LUM_SAC_A"
+            ]
+        },
+        "hip": {
+            "labels": ["hip_left", "hip_right"],
+            "margin_mm": [30, 30, 30, 30, 30, 30],
+            "landmarks": [
+                "PEL_ASIS_L", "PEL_ASIS_R", "PEL_AIIS_L", "PEL_AIIS_R", "PEL_PT_L", "PEL_PT_R", "PEL_IT_L", "PEL_IT_R", "PEL_PS",
+                "PEL_PSIS_L", "PEL_PSIS_R", "PEL_COM", "PEL_FH_L", "PEL_FH_R"
+            ]
+        },
+        "pelvis": {
+            "labels": ["hip_left", "hip_right", "sacrum"],
+            "margin_mm": [30, 30, 30, 30, 30, 30],
+            "landmarks": [
+                "PEL_ASIS_L", "PEL_ASIS_R", "PEL_AIIS_L", "PEL_AIIS_R", "PEL_PT_L", "PEL_PT_R", "PEL_IT_L", "PEL_IT_R", "PEL_PS",
+                "PEL_PSIS_L", "PEL_PSIS_R", "PEL_COM", "PEL_FH_L", "PEL_FH_R", "LUM_SAC_A"
+            ]
+        },
+        "femur_left": {
+            "labels": ["femur_left"],
+            "margin_mm": [20, 20, 20, 20, 20, 20],
+            "landmarks": ["FEM_L_FH", "FEM_L_FT_S", "FEM_L_FT_T", "FEM_L_LT"]
+        },
+        "femur_right": {
+            "labels": ["femur_right"],
+            "margin_mm": [20, 20, 20, 20, 20, 20],
+            "landmarks": ["FEM_R_FH", "FEM_R_FT_S", "FEM_R_FT_T", "FEM_R_LT"]
+        }
+    }
+}
