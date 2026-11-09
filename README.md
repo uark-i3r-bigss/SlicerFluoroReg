@@ -1,5 +1,9 @@
 # SlicerFluoroReg
 
+[![SlicerFluoroReg Results viewer in 3D Slicer](https://github.com/uark-i3r-bigss/SlicerFluoroReg/releases/download/v2.0.0/slicer-results.gif)](https://github.com/uark-i3r-bigss/SlicerFluoroReg/releases/download/v2.0.0/slicer-results.mp4)
+
+Results viewer: inspect initial/final poses and switch X-ray views. [Video](https://github.com/uark-i3r-bigss/SlicerFluoroReg/releases/download/v2.0.0/slicer-results.mp4) · [Screenshot](https://github.com/uark-i3r-bigss/SlicerFluoroReg/releases/download/v2.0.0/slicer-results.png)
+
 A Linux 3D Slicer extension that registers C-arm X-rays to CT and displays the results.
 The FluoroReg module prepares inputs, trains or selects an initial-pose model, and runs single-target or pelvis/femur registration in single-view or multiview mode.
 It can also open completed experiments read-only.
